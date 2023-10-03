@@ -41,7 +41,7 @@ function App() {
         setTimezone(data.location.timezone);
         setPosition([data.location.lat, data.location.lng]);
         setLocation(`${data.location.region}, ${data.location.country}`);
-        console.log(position)
+        
       }
       
       }
