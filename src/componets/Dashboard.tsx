@@ -1,33 +1,21 @@
-import { useState, useEffect } from "react"
-
-import axios from "axios";
-
 interface DashboardProps {
   ipAdress: string;
   location: string;
   timezone: string;
   isp: string;
+ 
 }
 
-const SpacecRender = () => {
-    
-  const [andress, setAdress] = useState <DashboardProps|null>(null);
-
-   useEffect (() => {
-
-    const initialData = async () => {
-    const requi = await axios.get(`https://geo.ipify.org/api/v2/country,city?apiKey=${import.meta.env.VITE_APP_API_KEY}&ipAddress=8.8.8.8`)
-    setAdress(requi.data)
-    }
-    
-    initialData()
-   }, [])
-
-
+const Dashboard: React.FC<DashboardProps> = ({
+  ipAdress,
+  location,
+  timezone,
+  isp,
+}) => {
+  
   return (
     
-
-    <>
+  <>
     <article className="">
               <div
                 className=" bg-slate-300
@@ -45,40 +33,41 @@ const SpacecRender = () => {
                    lg:gap-0 
                    lg:text-left
                    -mt-20
-                   absolute
+                  absolute
                    inset-x-10
-                    lg:-mb-32"
+                    lg:-mb-32
+                    "
                 style={{
                   zIndex: 10000,
                 }}
               >
-                <article className="lg:border-r lg:border-slate-400 p-6">
+                <article className="lg:border-r lg:border-slate-400 lg:p-6 md:p-4">
                   <h2 className="text-sm uppercase text-slate-600">
                     IP Address
                   </h2>
                   <p className="font-bold text-slate-900 text-2xl">
-                    {andress?.ipAdress}
+                    {ipAdress}
                   </p>
                 </article>
 
-                <article className="lg:border-r lg:border-slate-400 p-6">
+                <article className="lg:border-r lg:border-slate-400 lg:p-6 md:p-4">
                   <h2 className="text-sm uppercase text-slate-600">Location</h2>
                   <p className="font-bold text-slate-900 text-2xl">
-                    {andress?.location}
+                   {location}
                   </p>
                 </article>
 
-                <article className="lg:border-r lg:border-slate-400 p-6">
+                <article className="lg:border-r lg:border-slate-400 lg:p-6 md:p-4">
                   <h2 className="text-sm uppercase text-slate-600">Timezone</h2>
                   <p className="font-bold text-slate-900 text-2xl">
-                  {andress?.timezone}
+                   {timezone}
                   </p>
                 </article>
 
-                <article className="p-6">
+                <article className="lg:p-6 md:p-4">
                   <h2 className="text-sm uppercase text-slate-600">ISP</h2>
                   <p className="font-bold text-slate-900 text-2xl">
-                   {andress?.isp}
+                    {isp}
                   </p>
                 </article>
               </div>
@@ -87,4 +76,4 @@ const SpacecRender = () => {
   )
 }
 
-export default SpacecRender
+export default Dashboard;

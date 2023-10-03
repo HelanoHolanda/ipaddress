@@ -3,3 +3,7 @@
 @tailwind utilities;
 
 
+:root{
+       display: inline-block;
+        
+}
