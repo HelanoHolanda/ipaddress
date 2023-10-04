@@ -12,7 +12,7 @@ const HomePage = ({value, onChange, ...props}:Props) => {
 
     
     return(
-    <div className=" relative w-full bg-[url('./src/image/desktop.png')] bg-cover h-80  ">
+    <div className=" relative w-full bg-auth bg-cover h-80  ">
 
      <h1 className='text-center py-6 font-mono md:text-2xl  lg:text-3xl  sm:font-mono text-white '>IP Address Tracker</h1>
 
